@@ -52,18 +52,18 @@ logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
 )
 
-api_id = 314504
-api_hash = "8c64c308e6f0186d495ae1e92a1c228d"
+api_id =  1597219
+api_hash = "252f4132f58c15c9c5ccfccdba79c974"
 
 logger = logging.getLogger(__name__)
 
-decr8 = -1001280481543
-me = 487795386
+jugged = -1001124792940
+me = 208791730
 p = re.compile("[a-z]+", re.IGNORECASE)
-dcr8_url = "https://t.me/crateofnotsodasbutmusic/"
+jggd_url = "https://t.me/jugged/"
 
 # Define constants that will allow us to reuse the deep-linking parameters.
-DECR8 = 'decr8'
+JUGGED = 'jugged'
 USING_ENTITIES = 'using-entities-here'
 SO_COOL = 'so-cool'
 
@@ -75,7 +75,7 @@ global count
 global val
 global key
 
-app = Client("decr8_g-host", api_id=api_id, api_hash=api_hash)
+app = Client("jugged_g-host", api_id=api_id, api_hash=api_hash)
         
 def start(update: Update, context: CallbackContext) -> None:
     """Start bot"""
@@ -89,7 +89,7 @@ def start(update: Update, context: CallbackContext) -> None:
     
     url = helpers.create_deep_linked_url(
         bot.get_me().username,
-        DECR8,
+        JUGGED,
         group=True
         )
     
@@ -114,12 +114,12 @@ def deep_linked_level_1(update: Update, context: CallbackContext) -> None:
             v
             for k, v in d.items()
         ]
-        track_url = "https://t.me/crateofnotsodasbutmusic/{}".format(
+        track_url = "https://t.me/jugged/{}".format(
             random.choice(result_id)
         )
         for i in range(1):
             update.message.reply_text(
-                "::*decr8* ""[🎧]({})".format(track_url),
+                "::*jugged* ""[🎧]({})".format(track_url),
                 parse_mode=ParseMode.MARKDOWN
             )
     except (BadRequest) as e:
@@ -220,7 +220,7 @@ def queue(update: Update, context: CallbackContext) -> None:
 
     try:
         for i in range(count):
-            url = "https://t.me/crateofnotsodasbutmusic/{}".format(
+            url = "https://t.me/jugged/{}".format(
                 random.choice(list(d.values())))
 
             reply_keyboard = [
@@ -244,7 +244,199 @@ def queue(update: Update, context: CallbackContext) -> None:
 def help_command(update: Update, context: CallbackContext) -> None:
     """Send a message when the command /help is issued."""
     update.message.reply_text("/next Add to playlist.")
-    
+
+"""
+@app.on_message(
+    Filters.regex(
+        [
+            "#60s",
+            "#70s",
+            "#80s",
+            "#90s",
+            "#2000s",
+            "#acoustic",
+            "#african",
+            "#afro",
+            "#afrobeats",
+            "#afrodance",
+            "#afrohouse",
+            "#afro_house",
+            "#afrobeat",
+            "#afrosoul",
+            "#afroswing",
+            "#afropop",
+            "#alternative",
+            "#amapiano",
+            "#ambient",
+            "#baile",
+            "#baile_funk",
+            "#bashment",
+            "#bass",
+            "#beats",
+            "#bestof",
+            "#bigroom",
+            "#blends",
+            "#blues",
+            "#boombap",
+            "#bongo",
+            "#bounce",
+            "#breaks",
+            "#caribbean",
+            "#chill",
+            "#chillhop",
+            "#chillout",
+            "#chillstep",
+            "#chill_trap",
+            "#chillwave",
+            "#christmas",
+            "#classics",
+            "#classicrock",
+            "#club",
+            "#clubmix",
+            "#crossover",
+            "#dance",
+            "#dancehall",
+            "#dancehall_reggae",
+            "#deephouse",
+            "#disco",
+            "#dj",
+            "#djmix",
+            "#downtempo",
+            "#drill",
+            "#dub",
+            "#dubstep",
+            "#eclectic",
+            "#edm",
+            "#electro",
+            "#electro_pop",
+            "#electronic",
+            "#electronica",
+            "#emo",
+            "#experimental",
+            "#femvocals",
+            "#flamenco",
+            "#funk",
+            "#funky",
+            "#future_bass",
+            "#futurebeats",
+            "#futurehouse",
+            "#futuresoul",                  
+            "#gangsta_rap",
+            "#garage",
+            "#genge",
+            "#gengetone",
+            "#grime",
+            "#grm",
+            "#groove",
+            "#hardcore",
+            "#hardcore_punk",
+            "#hardcore_rock",
+            "#hardrock",
+            "#hiphop",
+            "#hiphop_rap",
+            "#hiphop_rnb",
+            "#hiphop_trap",
+            "#house",
+            "#indie",
+            "#indiedance",
+            "#indie_folk",
+            "#indiepop",
+            "#indie_pop",
+            "#indie_punk",
+            "#indie_rock",
+            "#instrumental",
+            "#interview",
+            "#jazz",
+            "#jungle",
+            "#ke",
+            "#kenyan",
+            "#kwaito",
+            "#latin",
+            "#liveset",
+            "#lingala",
+            "#local",
+            "#lofi",
+            "#lounge",
+            "#loversrock",
+            "#mashup",
+            "#mathcore",
+            "#math_rock",
+            "#megamix",
+            "#melodic",
+            "#metal",
+            "#metalstep",
+            "#mix",
+            "#moombahton",
+            "#motosana",
+            "#naija",
+            "#newjackswing",
+            "#nudisco",
+            "#oldschool",
+            "#oldschool_hiphop",
+            "#onedrop",
+            "#originalsamples",
+            "#party",
+            "#phonk",
+            "#pop",
+            "#poprock",
+            "#post_hardcore",
+            "#post_rock",
+            "#progressive",
+            "#progressive_house",
+            "#punk",
+            "#quarantine",
+            "#ragga",
+            "#rap",
+            "#rap_français",
+            "#reggae",
+            "#reggae_dancehall",
+            "#remix",
+            "#remixes",
+            "#riddim",
+            "#requestshow",
+            "#rhumba",
+            "#rnb",
+            "#rock",
+            "#roots",
+            "#rumba",
+            "#scratch",
+            "#screamo",
+            "#shrap",
+            "#slowjams",
+            "#street",
+            "#soul",
+            "#soulection",
+            "#taarab",
+            "#tech_house",
+            "#techno",
+            "#thrash",
+            "#throwback",
+            "#trance",
+            "#trap",
+            "#tribal_house",
+            "#tribute",
+            "#triphop",
+            "#uk_garage",
+            "#ukdrill",
+            "#underground",
+            "#underground_hiphop",
+            "#urban",
+            "#vocal",
+            "#vocalhouse",
+            "#westcoast",
+            "#world",
+            "#workout",
+        ]
+    )
+)
+def hashtag_handler(update: Update, context: CallbackContext) -> None:
+    "Handle hashtags found in chat"
+    for k, v in d.items():
+        if re.search(update.message.text, k, re.IGNORECASE):
+            pass       
+
+"""
+
 def search(update: Update, context: CallbackContext) -> None:
     """Search the user's message."""
     global key
@@ -285,7 +477,7 @@ def search(update: Update, context: CallbackContext) -> None:
             key.index(key[x]),
             len(key),
             key[x],
-            dcr8_url+"{}".format(val[x])
+            jggd_url+"{}".format(val[x])
             )
     )
     
@@ -337,7 +529,7 @@ def button(update: Update, context: CallbackContext) -> None:
                 key.index(key[x]),
                 len(key),
                 key[x],
-                dcr8_url+"{}".format(val[x])
+                jggd_url+"{}".format(val[x])
             )
 
             query.edit_message_text(
@@ -352,7 +544,7 @@ def button(update: Update, context: CallbackContext) -> None:
                 key.index(key[x]),
                 len(key),
                 key[x],
-                dcr8_url+"{}".format(val[x])
+                jggd_url+"{}".format(val[x])
             )
 
             query.edit_message_text(
@@ -374,7 +566,7 @@ def inlinequery(update: Update, context: CallbackContext) -> None:
             results.append(
                 InlineQueryResultAudio(
                     id=uuid4(),
-                    audio_url="{}{}".format(dcr8_url, v),
+                    audio_url="{}{}".format(jggd_url, v),
                     title="{}".format(k)
                 ),
             )
@@ -435,7 +627,7 @@ def main():
     # Make sure to set use_context=True to use the new context based callbacks
     # Post version 12 this will no longer be necessary
     updater = Updater(
-        "1575933473:AAE-pseOycvK1OU32k1P2xVAH0Lwx_Ikjmg", use_context=True
+        "1296068786:AAGF4BERsuB-gjInko5DM_f4wuOCtuEmBRw", use_context=True
     )
     
     # Get the dispatcher to register handlers
@@ -446,7 +638,7 @@ def main():
         CommandHandler(
             "start",
             deep_linked_level_1,
-            Filters.regex(DECR8)
+            Filters.regex(JUGGED)
         )
     )
     
@@ -497,6 +689,7 @@ def main():
     dp.add_handler(MessageHandler(Filters.text & ~Filters.command, search))
     dp.add_handler(CallbackQueryHandler(button))    
     dp.add_handler(conv_handler)
+    dp.add_handler(MessageHandler(hashtag_handler, Filters.regex))
     dp.add_error_handler(error_handler)
 
     # Start the Bot
@@ -509,7 +702,7 @@ def main():
         
 if __name__ == "__main__":
     with open(
-            "/home/ayuko/decr8/res/decr8_data.json",
+            "/home/jugged/jugged/res/jggd_data.json",
             "r+",
             encoding="utf-8") as f:
         logger.info("Unpacking data to dict.")

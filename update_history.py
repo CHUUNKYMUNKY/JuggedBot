@@ -10,23 +10,23 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 ##############################################
-api_id = 314504
-api_hash = "8c64c308e6f0186d495ae1e92a1c228d"
+api_id =  1597219
+api_hash = "252f4132f58c15c9c5ccfccdba79c974"
 ##############################################
 
-decr8 = -1001280481543
+jugged = -1001124792940
 
 with Client("history_update", api_id, api_hash) as app:
     logging.info("Getting history.")
     d = {
         msg.audio.file_name: msg.message_id
-        for msg in (app.iter_history(decr8))
+        for msg in (app.iter_history(jugged))
         if msg.audio
         if not None
     }
     logging.info("Done.")
     with open(
-            "/home/decr8/decr8/res/decr8_data.json",
+            "/home/jugged/jugged/res/jggd_data.json",
             "w",
             encoding="utf-8"
     ) as f:
