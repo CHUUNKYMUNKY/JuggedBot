@@ -1,2 +1,2 @@
 # musicloud
-jugged is a telrgram bot.
+jugged is a telegram bot.
